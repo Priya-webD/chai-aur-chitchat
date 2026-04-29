@@ -12,7 +12,7 @@ function Navbar() {
     if (!user) return;
     const fetchPic = async () => {
       try {
-        const res = await axios.get("https://blog-backend-csv9.onrender.com/api/profile", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/profile`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setProfilePic(res.data.profilePic || "");

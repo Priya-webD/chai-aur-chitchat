@@ -12,7 +12,7 @@ function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://blog-backend-csv9.onrender.com/api/posts", form, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/posts`, form, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       navigate("/");

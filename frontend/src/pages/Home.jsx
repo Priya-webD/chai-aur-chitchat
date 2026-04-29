@@ -9,7 +9,7 @@ function Home() {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/posts");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts`);
       setPosts(res.data);
     } catch (err) {
       console.error(err);
@@ -20,7 +20,7 @@ function Home() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://blog-backend-csv9.onrender.com/api/auth/login/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/auth/login/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setPosts(posts.filter((p) => p._id !== id));

@@ -14,7 +14,7 @@ function Profile() {
     if (!user) { navigate("/login"); return; }
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/profile", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/profile`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setForm({
@@ -31,7 +31,7 @@ function Profile() {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put("https://blog-backend-csv9.onrender.com/api/profile", form, {
+      const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/profile`, form, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       login({ ...user, username: res.data.username });
@@ -40,6 +40,7 @@ function Profile() {
     } catch (err) {
       setError("Failed to update profile");
     }
+    
   };
 
   return (
