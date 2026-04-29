@@ -31,7 +31,7 @@ function Profile() {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put("http://localhost:5000/api/profile", form, {
+      const res = await axios.put("https://blog-backend-csv9.onrender.com/api/profile", form, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       login({ ...user, username: res.data.username });

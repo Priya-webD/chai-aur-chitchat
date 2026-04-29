@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", form);
+      const res = await axios.post("https://blog-backend-csv9.onrender.com/api/auth/login", form);
       login(res.data);
       navigate("/");
     } catch (err) {

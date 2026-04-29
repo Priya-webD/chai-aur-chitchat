@@ -20,7 +20,7 @@ function Home() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${id}`, {
+      await axios.delete(`https://blog-backend-csv9.onrender.com/api/auth/login/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setPosts(posts.filter((p) => p._id !== id));
